@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "Vue3-Taro-MobX-Vant-ts",
+  "appid": "touristappid",
+  "setting": {
+    "es6": false,
+    "minified": false
+  }
+}
