@@ -16,12 +16,14 @@
     "baseUrl": ".",
     "rootDir": ".",
     "jsx": "react-jsx",
-    "allowJs": true,
+    "allowJs": true, 
     "resolveJsonModule": true,
     "typeRoots": [
       "node_modules/@types",
       "global.d.ts"
-    ]
+    ],
+    "types": ["miniprogram-api-typings"],
+    "lib": ["ES6"]
   },
   "exclude": [
     "node_modules",
