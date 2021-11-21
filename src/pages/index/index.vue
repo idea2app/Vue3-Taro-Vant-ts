@@ -1,19 +1,14 @@
 <template>
   <view class="index">
+    <van-icon name="chat" color="red" />
+    <van-button type="primary">主要按钮</van-button>
     <text>{{ msg }}</text>
   </view>
 </template>
 
-<script>
-import { ref } from 'vue'
-import './index.less'
+<script setup>
+import { ref } from "vue";
+import "./index.less";
 
-export default {
-  setup () {
-    const msg = ref('Hello world')
-    return {
-      msg
-    }
-  }
-}
+const msg = ref("Hello world");
 </script>
