@@ -6,6 +6,8 @@ on:
 jobs:
   Build-and-Deploy:
     runs-on: ubuntu-latest
+    env:
+      WMA_ID: ${{ secrets.WMA_ID }}
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -19,12 +21,12 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: Build HTML 5 version
-        if: ${{ !secrets.WMA_ID }}
+        if: ${{ !env.WMA_ID }}
         run: pnpm build:h5
         env:
           NODE_ENV: production
       - name: Deploy HTML 5 version
-        if: ${{ !secrets.WMA_ID }}
+        if: ${{ !env.WMA_ID }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           publish_dir: ./dist
@@ -32,22 +34,22 @@ jobs:
           force_orphan: true
 
       - name: Build WeChat version
-        if: ${{ secrets.WMA_ID }}
+        if: ${{ env.WMA_ID }}
         run: pnpm build:weapp
         env:
           NODE_ENV: production
       - name: Get NPM version
-        if: ${{ secrets.WMA_ID }}
+        if: ${{ env.WMA_ID }}
         uses: martinbeentjes/npm-get-version-action@master
         id: package-version
       - name: Upload Artifact
-        if: ${{ secrets.WMA_ID }}
+        if: ${{ env.WMA_ID }}
         uses: actions/upload-artifact@v3
         with:
           name: Taro-miniapp-${{ steps.package-version.outputs.current-version }}-bundle
           path: ./dist/
       - name: Upload to WeChat
-        if: ${{ secrets.WMA_ID }}
+        if: ${{ env.WMA_ID }}
         run: |
           cat > WMA-upload.key <<EOF
           ${{ secrets.WMA_UPLOAD_KEY }}
@@ -55,5 +57,5 @@ jobs:
           npx miniprogram-ci upload \
             --pp ./ \
             --pkp ./WMA-upload.key \
-            --appid ${{ secrets.WMA_ID }} \
+            --appid ${{ env.WMA_ID }} \
             --uv ${{ steps.package-version.outputs.current-version }}

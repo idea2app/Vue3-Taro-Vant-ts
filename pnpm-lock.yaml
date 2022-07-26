@@ -6,11 +6,11 @@ specifiers:
   '@tarojs/components': ~3.4.14
   '@tarojs/mini-runner': ~3.4.14
   '@tarojs/plugin-framework-vue3': 3.4.14
-  '@tarojs/plugin-html': ^3.4.14
-  '@tarojs/plugin-platform-weapp': ^3.4.14
+  '@tarojs/plugin-html': ~3.4.14
+  '@tarojs/plugin-platform-weapp': ~3.4.14
   '@tarojs/runtime': ~3.4.14
   '@tarojs/taro': ~3.4.14
-  '@tarojs/taro-h5': ^3.4.14
+  '@tarojs/taro-h5': ~3.4.14
   '@tarojs/webpack-runner': ~3.4.14
   '@types/webpack-env': ^1.17.0
   '@typescript-eslint/eslint-plugin': ^5.31.0
