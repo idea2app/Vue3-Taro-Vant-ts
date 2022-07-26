@@ -8,32 +8,6 @@
     "typescript": true,
     "css": "less"
   },
-  "scripts": {
-    "prepare": "rm -rf src/components/vant-weapp/dist/  &&  cp -r node_modules/@vant/weapp/dist src/components/vant-weapp/dist",
-    "build:weapp": "taro build --type weapp",
-    "build:swan": "taro build --type swan",
-    "build:alipay": "taro build --type alipay",
-    "build:tt": "taro build --type tt",
-    "build:h5": "taro build --type h5",
-    "build:rn": "taro build --type rn",
-    "build:qq": "taro build --type qq",
-    "build:jd": "taro build --type jd",
-    "build:quickapp": "taro build --type quickapp",
-    "dev:weapp": "npm run build:weapp -- --watch",
-    "dev:swan": "npm run build:swan -- --watch",
-    "dev:alipay": "npm run build:alipay -- --watch",
-    "dev:tt": "npm run build:tt -- --watch",
-    "dev:h5": "npm run build:h5 -- --watch",
-    "dev:rn": "npm run build:rn -- --watch",
-    "dev:qq": "npm run build:qq -- --watch",
-    "dev:jd": "npm run build:jd -- --watch",
-    "dev:quickapp": "npm run build:quickapp -- --watch"
-  },
-  "browserslist": [
-    "last 3 versions",
-    "Android >= 4.1",
-    "ios >= 8"
-  ],
   "dependencies": {
     "@babel/runtime": "^7.18.9",
     "@tarojs/components": "~3.4.14",
@@ -45,6 +19,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
+    "@tarojs/cli": "~3.4.14",
     "@tarojs/mini-runner": "~3.4.14",
     "@tarojs/plugin-html": "~3.4.14",
     "@tarojs/plugin-platform-weapp": "~3.4.14",
@@ -65,5 +40,31 @@
     "stylelint": "^14.9.1",
     "typescript": "~4.7.4",
     "vue-loader": "^16.8.3"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
+  "scripts": {
+    "prepare": "rm -rf src/components/vant-weapp/dist/  &&  cp -r node_modules/@vant/weapp/dist src/components/vant-weapp/dist",
+    "build:weapp": "taro build --type weapp",
+    "build:swan": "taro build --type swan",
+    "build:alipay": "taro build --type alipay",
+    "build:tt": "taro build --type tt",
+    "build:h5": "taro build --type h5",
+    "build:rn": "taro build --type rn",
+    "build:qq": "taro build --type qq",
+    "build:jd": "taro build --type jd",
+    "build:quickapp": "taro build --type quickapp",
+    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:swan": "npm run build:swan -- --watch",
+    "dev:alipay": "npm run build:alipay -- --watch",
+    "dev:tt": "npm run build:tt -- --watch",
+    "dev:h5": "npm run build:h5 -- --watch",
+    "dev:rn": "npm run build:rn -- --watch",
+    "dev:qq": "npm run build:qq -- --watch",
+    "dev:jd": "npm run build:jd -- --watch",
+    "dev:quickapp": "npm run build:quickapp -- --watch"
   }
 }
