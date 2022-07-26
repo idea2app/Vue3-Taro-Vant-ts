@@ -7,8 +7,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import "./index.less";
+import { ref } from 'vue';
+import './index.less';
 
-const msg = ref("Hello world");
+const msg = ref('Hello world');
 </script>

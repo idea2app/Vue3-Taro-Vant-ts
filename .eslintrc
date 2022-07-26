@@ -1,3 +1,6 @@
 {
-  "extends": ["taro/vue3"]
+  "extends": ["taro/vue3", "prettier"],
+  "rules": {
+    "vue/multi-word-component-names": "warn"
+  }
 }

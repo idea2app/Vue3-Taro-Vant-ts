@@ -1,4 +1,5 @@
-const path = require('path')
+const path = require('path');
+
 const config = {
   projectName: 'Vue3-Taro-MobX-Vant-ts',
   date: '2021-11-20',
@@ -11,26 +12,54 @@ const config = {
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: ['@tarojs/plugin-html'],
-  defineConstants: {
-  },
+  defineConstants: {},
   alias: {
     '@/vant': path.resolve(__dirname, '../src/components/vant-weapp/dist')
   },
   copy: {
     patterns: [
-      { from: 'src/components/vant-weapp/dist/wxs', to: 'dist/components/vant-weapp/dist/wxs' },
-      { from: 'src/components/vant-weapp/dist/common/style', to: 'dist/components/vant-weapp/dist/common/style' },
-      { from: 'src/components/vant-weapp/dist/common/index.wxss', to: 'dist/components/vant-weapp/dist/common/index.wxss' },
-      { from: 'src/components/vant-weapp/dist/button/index.wxs', to: 'dist/components/vant-weapp/dist/button/index.wxs' },
-      { from: 'src/components/vant-weapp/dist/icon/index.wxs', to: 'dist/components/vant-weapp/dist/icon/index.wxs' },
-      { from: 'src/components/vant-weapp/dist/loading/index.wxs', to: 'dist/components/vant-weapp/dist/loading/index.wxs' },
-      { from: 'src/components/vant-weapp/dist/calendar/index.wxs', to: 'dist/components/vant-weapp/dist/calendar/index.wxs' },
-      { from: 'src/components/vant-weapp/dist/calendar/utils.wxs', to: 'dist/components/vant-weapp/dist/calendar/utils.wxs' },
-      { from: 'src/components/vant-weapp/dist/calendar/calendar.wxml', to: 'dist/components/vant-weapp/dist/calendar/calendar.wxml' },
-      { from: 'src/components/vant-weapp/dist/calendar/components/month/index.wxs', to: 'dist/components/vant-weapp/dist/calendar/components/month/index.wxs' },
+      {
+        from: 'src/components/vant-weapp/dist/wxs',
+        to: 'dist/components/vant-weapp/dist/wxs'
+      },
+      {
+        from: 'src/components/vant-weapp/dist/common/style',
+        to: 'dist/components/vant-weapp/dist/common/style'
+      },
+      {
+        from: 'src/components/vant-weapp/dist/common/index.wxss',
+        to: 'dist/components/vant-weapp/dist/common/index.wxss'
+      },
+      {
+        from: 'src/components/vant-weapp/dist/button/index.wxs',
+        to: 'dist/components/vant-weapp/dist/button/index.wxs'
+      },
+      {
+        from: 'src/components/vant-weapp/dist/icon/index.wxs',
+        to: 'dist/components/vant-weapp/dist/icon/index.wxs'
+      },
+      {
+        from: 'src/components/vant-weapp/dist/loading/index.wxs',
+        to: 'dist/components/vant-weapp/dist/loading/index.wxs'
+      },
+      {
+        from: 'src/components/vant-weapp/dist/calendar/index.wxs',
+        to: 'dist/components/vant-weapp/dist/calendar/index.wxs'
+      },
+      {
+        from: 'src/components/vant-weapp/dist/calendar/utils.wxs',
+        to: 'dist/components/vant-weapp/dist/calendar/utils.wxs'
+      },
+      {
+        from: 'src/components/vant-weapp/dist/calendar/calendar.wxml',
+        to: 'dist/components/vant-weapp/dist/calendar/calendar.wxml'
+      },
+      {
+        from: 'src/components/vant-weapp/dist/calendar/components/month/index.wxs',
+        to: 'dist/components/vant-weapp/dist/calendar/components/month/index.wxs'
+      }
     ],
-    options: {
-    }
+    options: {}
   },
   framework: 'vue3',
   mini: {
@@ -57,13 +86,12 @@ const config = {
     }
   },
   h5: {
-    publicPath: '/',
+    publicPath: '.',
     staticDirectory: 'static',
     postcss: {
       autoprefixer: {
         enable: true,
-        config: {
-        }
+        config: {}
       },
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
@@ -74,11 +102,11 @@ const config = {
       }
     }
   }
-}
+};
 
 module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
-    return merge({}, config, require('./dev'))
+    return merge({}, config, require('./dev'));
   }
-  return merge({}, config, require('./prod'))
-}
+  return merge({}, config, require('./prod'));
+};
