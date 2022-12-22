@@ -21,9 +21,9 @@ pnpm i
 ### 启动服务
 
 ```shell
-pnpm dev:h5
+pnpm dev h5
 # 或
-pnpm dev:weapp
+pnpm dev weapp
 ```
 
 [1]: https://v3.cn.vuejs.org/
