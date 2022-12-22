@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "dist/",
-  "projectname": "Vue3-Taro-MobX-Vant-ts",
-  "description": "Vue3-Taro-MobX-Vant-ts",
+  "projectname": "Vue3-Taro-Vant-ts",
+  "description": "Vue3-Taro-Vant-ts",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,
