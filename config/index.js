@@ -1,7 +1,9 @@
-const path = require('path');
+const { resolve } = require('path');
+
+const { usingComponents } = require('../src/app.config');
 
 const config = {
-  projectName: 'Vue3-Taro-MobX-Vant-ts',
+  projectName: 'Vue3-Taro-Vant-ts',
   date: '2021-11-20',
   designWidth: 750,
   deviceRatio: {
@@ -14,54 +16,27 @@ const config = {
   plugins: ['@tarojs/plugin-html'],
   defineConstants: {},
   alias: {
-    '@/vant': path.resolve(__dirname, '../src/components/vant-weapp/dist')
+    '@/vant': resolve(__dirname, '../src/components/vant-weapp/dist')
   },
   copy: {
-    patterns: [
-      {
-        from: 'src/components/vant-weapp/dist/wxs',
-        to: 'dist/components/vant-weapp/dist/wxs'
-      },
-      {
-        from: 'src/components/vant-weapp/dist/common/style',
-        to: 'dist/components/vant-weapp/dist/common/style'
-      },
-      {
-        from: 'src/components/vant-weapp/dist/common/index.wxss',
-        to: 'dist/components/vant-weapp/dist/common/index.wxss'
-      },
-      {
-        from: 'src/components/vant-weapp/dist/button/index.wxs',
-        to: 'dist/components/vant-weapp/dist/button/index.wxs'
-      },
-      {
-        from: 'src/components/vant-weapp/dist/icon/index.wxs',
-        to: 'dist/components/vant-weapp/dist/icon/index.wxs'
-      },
-      {
-        from: 'src/components/vant-weapp/dist/loading/index.wxs',
-        to: 'dist/components/vant-weapp/dist/loading/index.wxs'
-      },
-      {
-        from: 'src/components/vant-weapp/dist/calendar/index.wxs',
-        to: 'dist/components/vant-weapp/dist/calendar/index.wxs'
-      },
-      {
-        from: 'src/components/vant-weapp/dist/calendar/utils.wxs',
-        to: 'dist/components/vant-weapp/dist/calendar/utils.wxs'
-      },
-      {
-        from: 'src/components/vant-weapp/dist/calendar/calendar.wxml',
-        to: 'dist/components/vant-weapp/dist/calendar/calendar.wxml'
-      },
-      {
-        from: 'src/components/vant-weapp/dist/calendar/components/month/index.wxs',
-        to: 'dist/components/vant-weapp/dist/calendar/components/month/index.wxs'
-      }
-    ],
+    patterns:
+      process.env.TARO_ENV === 'h5'
+        ? [{ from: 'public', to: 'dist' }]
+        : ['van-wxs', 'van-common', ...Object.keys(usingComponents)]
+            .map(name => {
+              const [scope, tag] = name.split('-');
+
+              if (scope !== 'van') return;
+
+              const path = `components/vant-weapp/dist/${tag}`;
+
+              return { from: `src/${path}`, to: `dist/${path}` };
+            })
+            .filter(Boolean),
     options: {}
   },
   framework: 'vue3',
+  compiler: 'webpack5',
   mini: {
     postcss: {
       pxtransform: {
@@ -86,7 +61,7 @@ const config = {
     }
   },
   h5: {
-    publicPath: '.',
+    publicPath: '/',
     staticDirectory: 'static',
     postcss: {
       autoprefixer: {
