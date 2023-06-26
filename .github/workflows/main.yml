@@ -6,6 +6,8 @@ on:
 jobs:
   Build-and-Deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       WMA_ID: ${{ secrets.WMA_ID }}
     steps:
