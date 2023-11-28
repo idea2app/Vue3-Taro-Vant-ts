@@ -36,7 +36,7 @@ const config = {
     options: {}
   },
   framework: 'vue3',
-  compiler: 'webpack5',
+  compiler: { type: 'webpack5', prebundle: { enable: false } },
   mini: {
     postcss: {
       pxtransform: {
