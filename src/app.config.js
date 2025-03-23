@@ -1,3 +1,7 @@
+// @ts-check
+/** @typedef {import('@tarojs/taro').Config} TaroConfig */
+
+/** @type TaroConfig */
 module.exports = {
   usingComponents: {
     'van-button': '@/vant/button/index',

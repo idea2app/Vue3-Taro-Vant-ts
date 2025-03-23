@@ -15,7 +15,7 @@ https://idea2app.github.io/Vue3-Taro-Vant-ts/
 
 - 编程语言: [TypeScript 5][2]
 - 组件引擎: [Vue 3][1]
-- 组件库: [Vant 2][4]
+- 组件库: [Vant 4][4]
 - CI / CD: GitHub [Actions][8] + [Pages][9]
 
 ## 本地开发
