@@ -14,6 +14,7 @@
     "@tarojs/helper": "4.0.9",
     "@tarojs/plugin-framework-vue3": "4.0.9",
     "@tarojs/plugin-html": "4.0.9",
+    "@tarojs/plugin-platform-h5": "^4.0.9",
     "@tarojs/plugin-platform-weapp": "4.0.9",
     "@tarojs/router": "4.0.9",
     "@tarojs/runtime": "4.0.9",
@@ -21,6 +22,7 @@
     "@tarojs/taro": "4.0.9",
     "@tarojs/taro-h5": "4.0.9",
     "@vant/weapp": "^1.11.7",
+    "vant": "^4.9.18",
     "vue": "^3.5.13"
   },
   "devDependencies": {
@@ -49,6 +51,7 @@
     "lint-staged": "^15.5.0",
     "miniprogram-api-typings": "^4.0.5",
     "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
     "style-loader": "^4.0.0",
     "stylelint": "^16.16.0",
     "typescript": "~5.8.2",
@@ -75,8 +78,9 @@
   "scripts": {
     "install": "rm -rf src/components/vant-weapp/dist/  &&  cp -r node_modules/@vant/weapp/dist src/components/vant-weapp/dist",
     "prepare": "husky install",
-    "build": "taro build --type",
-    "dev": "taro build --watch --type",
+    "clean": "rimraf .swc/ dist/",
+    "build": "npm run clean  &&  taro build --type",
+    "dev": "npm run clean  &&  taro build --watch --type",
     "test": "lint-staged",
     "prepublishOnly": "cross-env NODE_ENV=production  npm run build -- weapp"
   }
