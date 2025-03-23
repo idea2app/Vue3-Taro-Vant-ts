@@ -1,10 +1,12 @@
-const { resolve } = require('path');
+import { resolve } from 'path';
 
-const { usingComponents } = require('../src/app.config');
+import appConfig from '../src/app.config';
+import devConfig from './dev';
+import prodConfig from './prod';
 
 const config = {
   projectName: 'Vue3-Taro-Vant-ts',
-  date: '2021-11-20',
+  date: '2025-03-23',
   designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,
@@ -22,7 +24,7 @@ const config = {
     patterns:
       process.env.TARO_ENV === 'h5'
         ? [{ from: 'public', to: 'dist' }]
-        : ['van-wxs', 'van-common', ...Object.keys(usingComponents)]
+        : ['van-wxs', 'van-common', ...Object.keys(appConfig.usingComponents!)]
             .map(name => {
               const [scope, tag] = name.split('-');
 
@@ -79,10 +81,7 @@ const config = {
   }
 };
 
-module.exports = function (merge) {
-  if (process.env.NODE_ENV === 'development') {
-    return merge({}, config, require('./dev'));
-  }
-
-  return merge({}, config, require('./prod'));
-};
+export default merge =>
+  process.env.NODE_ENV === 'development'
+    ? merge({}, config, devConfig)
+    : merge({}, config, prodConfig);

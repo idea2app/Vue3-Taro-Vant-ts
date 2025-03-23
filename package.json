@@ -1,6 +1,6 @@
 {
   "name": "@idea2app/vue3-taro-vant-ts",
-  "version": "1.0.0",
+  "version": "0.5.1",
   "private": true,
   "description": "Vue3-Taro-Vant-ts",
   "templateInfo": {
@@ -38,6 +38,7 @@
     "@vue/babel-plugin-jsx": "^1.4.0",
     "@vue/compiler-sfc": "^3.5.13",
     "babel-preset-taro": "4.0.9",
+    "cp-cli": "^2.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "eslint": "^9.23.0",
@@ -76,8 +77,8 @@
     "ios >= 8"
   ],
   "scripts": {
-    "install": "rm -rf src/components/vant-weapp/dist/  &&  cp -r node_modules/@vant/weapp/dist src/components/vant-weapp/dist",
-    "prepare": "husky install",
+    "install": "rm -rf src/components/vant-weapp/dist/  &&  cp-cli node_modules/@vant/weapp/dist src/components/vant-weapp/dist",
+    "prepare": "husky",
     "clean": "rimraf .swc/ dist/",
     "build": "npm run clean  &&  taro build --type",
     "dev": "npm run clean  &&  taro build --watch --type",

@@ -1,8 +1,4 @@
-// @ts-check
-/** @typedef {import('@tarojs/taro').Config} TaroConfig */
-
-/** @type TaroConfig */
-module.exports = {
+export default {
   usingComponents: {
     'van-button': '@/vant/button/index',
     'van-icon': '@/vant/icon/index'

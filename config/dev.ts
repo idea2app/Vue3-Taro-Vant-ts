@@ -1,9 +1,8 @@
-module.exports = {
+export default {
   env: {
     NODE_ENV: '"development"'
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   mini: {},
   h5: {}
-}
+};
